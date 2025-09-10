@@ -24,7 +24,7 @@ Features
   - Choose plot type and analysis level (Animal/Arm)
   - Dynamic display options for TGI plots  
 - Preview data:
-  - View uploaded and transformed data in a searchable table.  
+  - View transformed data in a searchable and downloadable table.  
 
 Online use:
 https://lucijanskof.shinyapps.io/DRAP-interface/
