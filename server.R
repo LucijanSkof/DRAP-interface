@@ -6,22 +6,22 @@ function(input, output, session) {
   last_stat_text <- reactiveVal("")
   
   # Transformation function 
-  transform_table <- function(ime_tabele) {
+  transform_table <- function(datatable_name) {
     tryCatch({
-      original_table <- read_xlsx(ime_tabele, col_names = TRUE)
+      original_table <- read_xlsx(datatable_name, col_names = TRUE)
       
       if(ncol(original_table) < 2) {
-        stop("Tabela mora imeti vsaj 2 stolpca")
+        stop("The table must have at least 2 columns.")
       }
       
-      transponirano <- setDT(transpose(original_table))
+      transposed <- setDT(transpose(original_table))
       Times_values <- colnames(original_table)[-1]
-      ID_vrednosti <- as.character(transponirano[1])
+      ID_values <- as.character(transposed[1])
       
-      volumes <- melt(transponirano[2:nrow(transponirano), ],
-                      measure.vars = 1:ncol(transponirano),
+      volumes <- melt(transposed[2:nrow(transposed), ],
+                      measure.vars = 1:ncol(transposed),
                       variable.name = "ID", value.name = "Volume")
-      volumes[, ID := ID_vrednosti[ID]]
+      volumes[, ID := ID_values[ID]]
       
       final_table <- data.frame(
         Times = as.numeric(rep(Times_values, length.out = nrow(volumes))),
@@ -219,7 +219,7 @@ function(input, output, session) {
         } else if (input$stat_test == "lmm") {
           data$Arms <- factor(data$Arms)
           
-          # Nastavi referenčno skupino iz izbire uporabnika
+          # Sets the reference group from the user's selection.
           if (!is.null(input$intercept_group) && input$intercept_group %in% levels(data$Arms)) {
             data$Arms <- relevel(data$Arms, ref = input$intercept_group)
           }
