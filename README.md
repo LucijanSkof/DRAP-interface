@@ -23,8 +23,6 @@ Features
   - Select control group for comparison
   - Choose plot type and analysis level (Animal/Arm)
   - Dynamic display options for TGI plots  
-- Copy results:
-  - Easily copy statistical results to the clipboard with a single button.  
 - Preview data:
   - View uploaded and transformed data in a searchable table.  
 
