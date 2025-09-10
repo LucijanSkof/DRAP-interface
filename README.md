@@ -38,3 +38,7 @@ install.packages(c("shiny", "shinythemes", "readxl", "data.table", "ggplot2", "c
 
  Install DRAP from Bioconductor or CRAN if needed
  BiocManager::install("DRAP")
+
+Reference
+-Quanxue Li, Wentao Dai, Jixiang Liu, Yi‑Xue Li, and Yuan‑Yuan Li. DRAP: a toolbox for drug response analysis and visualization tailored for preclinical drug testing on patient-derived xenograft models. Journal of Translational Medicine, 2019, 17(1): 39.
+-https://github.com/SCBIT-YYLab/DRAP
